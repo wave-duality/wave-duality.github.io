@@ -1,66 +1,30 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset = "UTF-8">
-        <title> Pro Set </title>
-    </head>
-    <style>
-        #canvas{
-            margin: auto;
-            background:white;
-            font-family: Fantasy, Papyrus, serif;
-            font-size: 32px; 
-        }
-
-        #wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Fantasy, Papyrus, serif;
-            font-size: 32px; 
-        }
-
-        #remaining {
-            left: 1400px;
-            top: 380px;
-            width: 100px;
-            position: absolute;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 120px; 
-        }
-        #reset {
-            left: 400px;
-            width: 100px;
-            height: 30px;
-            top: 410px;
-            position: absolute;
-        }
-
-        #start {
-            left: 400px;
-            width: 100px;
-            height: 30px;
-            top: 470px;
-            position: absolute;
-        }
-
-        #stopwatch {
-            left: 400px;
-            top: 300px;
-            position: absolute;
-            font-size: 40px;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-    </style>
-    <body>
-        <div id="wrapper">
-            <canvas id="canvas" width="720" height="900"></canvas>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProSet</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="gameTitle">ProSet</h1>
+        <button id="startBtn">Start</button>
+        <div id="gameControls">
+            <div id="cardsRemaining">
+                <div id="deck">
+                    <div id="deckNumber">56</div>
+                </div>
+            </div>
+            <div id="controls">
+                <button id="resetBtn">Reset</button>
+            </div>
+            <div id="timer">
+                <p> </p>
+            </div>
         </div>
-        <div id="remaining"></div>
-        <button id="reset" onclick="initializeGame()">Reset</button>
-        <button id="start" onclick="startGame()">Start</button>
-        <div id="stopwatch">00:00:00.00</div>
-        <script type = 'text/javascript' src="proset.js"></script>
-    </body>
-    
+        <div id="cardTable"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
 </html>
