@@ -1,3 +1,10 @@
+function formatTime(seconds) {
+    const m = Math.floor(seconds/ 60);
+    const s = Math.floor(seconds % 60);
+    return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     let deck = createDeck();
     let selectedCards = [];
@@ -36,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('timer').style.display = 'block'; // Show timer
         timer = setInterval(() => {
             time += 0.1;
-            document.getElementById('timer').innerText = `⏳ ${time.toFixed(0)}s`; // Display with one decimal place
+            document.getElementById('timer').innerText = formatTime(time); // Display with one decimal place
         }, 100);
         document.getElementById('cardsRemaining').style.display = 'block';
         dealCards();
@@ -45,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function resetGame() {
         clearInterval(timer);
         time = 0;
-        document.getElementById('timer').innerText = `Time: ${time}s`;
+        document.getElementById('timer').innerText = "00:00";
         deck = createDeck();
         selectedCards = [];
         document.getElementById('cardsLeft').innerText = deck.length;
@@ -180,7 +187,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function endGame() {
         clearInterval(timer); // Stop the timer
-        document.getElementById('timer').innerText = `⏳ ${time.toFixed(1)}`; // Show full time with decimal places
+        const m = Math.floor(time / 60);
+        const s = Math.floor(time % 60);
+        const d = (time % 1).toFixed(1).substring(2); // Get the decimal part
+        document.getElementById('timer').innerText = `⏳${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}.${d}`; // Show full time with decimal places
         document.getElementById('timer').style.color = 'green'; // Turn the timer text green
     
         const cards = document.querySelectorAll('.card');
