@@ -5,7 +5,7 @@ An implementation of ProSet.
 ProSet is a card/pattern recognition game popularized at Canada/USA Mathcamp. There is currently no cheap way to buy the physical game online, so hopefully this online implementation can widen its reach.
 
 # Rules
-The canonical deck consists of $2^6 - 1 = 63$ cards, corresponding to the distinct, non-empty subsets of $6$ colored dots (red, orange, yellow, green, blue, purple). At any given point, $7$ cards are shown face up, and the player's goal is to find any non-empty subset of these $7$ cards such that **every** color appears an even amount of times in this set (so $0, 2, 4,$ or $6$ times). One can also imagine this process as ``adding" cards by overlaying them on top of each other, where 2 dots of the same color cancel each other out.
+The canonical deck consists of $2^6 - 1 = 63$ cards, corresponding to the distinct, non-empty subsets of $6$ colored dots (red, orange, yellow, green, blue, purple). At any given point, $7$ cards are shown face up, and the player's goal is to find any non-empty subset of these $7$ cards such that **every** color appears an even amount of times in this set (so $0, 2, 4,$ or $6$ times). One can also imagine this process as "adding" cards by overlaying them on top of each other, where 2 dots of the same color cancel each other out, and the objective is to cancel everything out.
 
 Once a "ProSet" is found, those cards are discarded and replaced with new ones. The goal is to exhaust the deck, and the timer stops once no cards remain in the deck, since the remaining cards are guaranteed to form a "ProSet" (as the sum over the whole deck is the "empty card"). 
 
