@@ -1,0 +1,293 @@
+/* Reset default styles */
+body, h1, button, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    width: 90%;
+    max-width: 1200px;
+}
+
+#gameTitle {
+    margin-bottom: 20px;
+    font-size: 3em;
+}
+
+#startBtn {
+    margin-bottom: 20px;
+    font-size: 24px; /* Larger font size */
+    padding: 15px 30px; /* Increased padding for larger button */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text color */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition */
+}
+
+#startBtn:hover {
+    transform: scale(1.1); /* Slightly scale up on hover */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75); /* Add box shadow for pop-out effect */
+}
+
+#gameControls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+#cardsRemaining {
+    position: fixed;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none; /* Hidden by default */
+}
+
+#deck {
+    width: 140px;
+    height: 210px;
+    background-color: #ccc; /* Placeholder color */
+    border: 4px solid #333; /* Thin border */
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#deck::before,
+#deck::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc; /* Placeholder color */
+    border: 4px solid #333; /* Thin border */
+    border-radius: 10px;
+    z-index: -1;
+}
+
+#deck::before {
+    transform: translate(-6%, -4%) rotate(-3deg);
+}
+
+#deck::after {
+    transform: translate(7%, 6%) rotate(4deg);
+}
+
+#deckNumber {
+    font-size: 48px; /* Larger font size */
+    font-weight: bold;
+    z-index: 1; /* Lift number above cards */
+}
+
+#controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#timer {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: none; /* Hidden by default */
+}
+
+#resetBtn {
+    display: none; /* Hidden by default */
+}
+
+#cardTable {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+}
+
+.row {
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+
+.card {
+    border: 2px solid #333;
+    padding: 20px;
+    cursor: pointer;
+    user-select: none;
+    width: calc(100px + 2vw);
+    height: calc(150px + 2vw);
+    position: relative;
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.2s ease-in-out; /* Smooth animation */
+}
+
+.card.selected {
+    background-color: #ddd;
+}
+
+.card.deal-animation {
+    animation: dealAnimation 0.3s ease-in-out;
+}
+
+@keyframes dealAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dot {
+    width: calc(30px + 1vw);
+    height: calc(30px + 1vw);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.dot1 {
+    background-color: rgb(255, 51, 51);
+}
+
+.dot2 {
+    background-color: rgb(255, 128, 0);
+}
+
+.dot3 {
+    background-color: rgb(235, 235, 20);
+}
+
+.dot4 {
+    background-color: rgb(0, 204, 0);
+}
+
+.dot5 {
+    background-color: rgb(51, 153, 255);
+}
+
+.dot6 {
+    background-color: rgb(127, 0, 255);
+}
+
+.dot1 {
+    top: 10%;
+    left: 10%;
+}
+
+.dot2 {
+    top: 10%;
+    right: 10%;
+}
+
+.dot3 {
+    top: 40%;
+    left: 10%;
+    /*transform: translateY(-50%);*/
+}
+
+.dot4 {
+    top: 40%;
+    right: 10%;
+    /*transform: translateY(-50%);*/
+}
+
+.dot5 {
+    bottom: 10%;
+    left: 10%;
+}
+
+.dot6 {
+    bottom: 10%;
+    right: 10%;
+}
+
+#controlsChoice {
+    margin-bottom: 20px;
+}
+
+#controlsChoice p {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.controls-options {
+    display: flex;
+    gap: 10px;
+}
+
+.controls-options label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.controls-options input[type="radio"] {
+    display: none;
+}
+
+.controls-options span {
+    margin-left: 5px;
+    font-size: 1.2em;
+}
+
+.controls-options label:hover {
+    text-decoration: underline;
+    color: #4CAF50; /* Green color */
+}
+
+@media (max-width: 768px) {
+    #gameControls {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #startBtn {
+        margin-bottom: 10px;
+    }
+
+    .card {
+        width: calc(80px + 3vw);
+        height: calc(120px + 3vw);
+    }
+
+    .dot {
+        width: calc(20px + 2vw);
+        height: calc(20px + 2vw);
+    }
+}
+
+@keyframes flyAway3D {
+    from {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        opacity: 0;
+        transform: translate3d(0, 0, 400px) scale(10); /* Adjust for 3D fly away effect */
+    }
+}
+
+
+
+
